@@ -1,10 +1,8 @@
-import { data } from "autoprefixer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const DataDetail = () => {
     const id = useParams()
-    // console.log('id through param',id);
     const [allData, setAllData] = useState([])
     useEffect(()=>{
         fetch(`https://api.tvmaze.com/search/shows?q=all`)
@@ -14,22 +12,15 @@ const DataDetail = () => {
     const noMore = []
     const findData = allData.map(data => {
         if(data.show.id == id.id){
-            // setYes(data.show)
             noMore.push(data.show)
-            // console.log(noMore);
         }
     });
-    let a = {}
-    // console.log('from outside',noMore[0]?.name);
+    let dataObj = {}
     const rightData = noMore.map(data => {
-        // console.log(data);
-        a.singleData = data
+        dataObj.singleData = data
     } )
-    // console.log(a?.singleData?.name);
-    // console.log(noMore[0]?.name);
     const summary = noMore[0]?.summary
     console.log(noMore[0]);
-    // console.log(summary);
 
     const removePTags = (htmlString) => {
         const parser = new DOMParser();
@@ -37,7 +28,6 @@ const DataDetail = () => {
         return parsedHtml.body.textContent;
       };
       const cleanedSummary = removePTags(summary);
-    //   console.log(cleanedSummary);
       const img = noMore[0]?.image.original;
     return (
         <div className="mb-20">

@@ -12,7 +12,6 @@ const AllData = () => {
         .then(res => res.json())
         .then(data => setAllData(data))
     },[])
-    // console.log(allData);
     return (
         <div>
 
@@ -20,9 +19,6 @@ const AllData = () => {
       {allData.slice(0, showAllData ? allData.length : 6).map((singleData, i) => (
           <SingleData key={i} singleData={singleData} />
           ))}
-      {/* {displayCount < allData.length && (
-          <button className="font-bold bg-orange-500 p-2 text-white rounded-md" onClick={handleShowAllData}>Show All</button>
-        )} */}
       <br />
     </div>
     <div className="mb-28 mt-10 flex justify-center">

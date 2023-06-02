@@ -1,30 +1,33 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-    return (
-        <div>
-            <div className="navbar bg-base-100">
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><Link to='/'>Item 1</Link></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+  const handleLogin = () =>{
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'User Logged in successfully',
+      showConfirmButton: false,
+      timer: 1400
+    })
+  }
+  return (
+    <div className="">
+      <div className="navbar bg-base-100 flex items-center justify-center">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li className="text-2xl font-semibold"> 
+              <Link to="/">Home </Link>
+            </li>
+            
           </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
-</div>
         </div>
-    );
+        <div onClick={ handleLogin} className="navbar-end">
+          <a className="btn btn-warning font-serif">Login</a>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
