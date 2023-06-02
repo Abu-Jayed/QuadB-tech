@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Layouts = () => {
     return (
-        <div>
+        <div className="max-w-6xl mx-auto">
             <Navbar></Navbar>
             <AllData></AllData>
         </div>

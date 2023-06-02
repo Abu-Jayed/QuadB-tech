@@ -10,7 +10,7 @@ const AllData = () => {
     },[])
     // console.log(allData);
     return (
-        <div className="grid md:grid-cols-3 grid-cols-1">
+        <div className="gap-20 grid md:grid-cols-3 grid-cols-1 gap">
             {
                 allData.map((singleData,i) => <SingleData
                 key={i}
