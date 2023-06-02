@@ -1,12 +1,14 @@
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import DataDetail from "../DataDetail/DataDetail";
 
 const SingleData = ({ singleData }) => {
-  const { name,image,genres, network,  } = singleData.show;
+  const { name,image,genres, network, id, } = singleData.show;
   const {medium,original} = image;
   
 
-  // console.log(singleData);
-  console.log(network?.name);
+  console.log(singleData);
+  // console.log(network?.name);
   return (
     <div>
      <div>
@@ -41,7 +43,7 @@ const SingleData = ({ singleData }) => {
             <p className=" flex gap-2 w-6 ">
         Generes: 
             {
-                genres.map(genre => <p className=" ">{genre}</p>)
+                genres.map(genre => <p key={id} className=" ">{genre}</p>)
             }
             </p>
           </div>
@@ -50,7 +52,9 @@ const SingleData = ({ singleData }) => {
               network?.name ? <p>Publiser: {network?.name}</p> : ''
             }
             {/* <p>Publised By: {network?.name}</p> */}
-            <button className="font-bold bg-orange-500 p-2 text-white rounded-md">Details</button>
+            <Link to={`/detail/${id}`}>
+            <button className="font-bold bg-orange-500 p-2 text-white rounded-md"> Details</button>
+            </Link>
           </div>
         </div>
       </div>

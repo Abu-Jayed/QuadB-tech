@@ -1,10 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
 import Layouts from "../Layouts/Layouts";
+import DataDetail from "../Components/DataDetail/DataDetail";
+import AllData from "../Components/AllData/AllData";
 
 export const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layouts></Layouts>
-    },
+      element: <Layouts></Layouts>,
+      children:[
+        {
+          path: '/',
+          element: <AllData></AllData>
+        },
+        {
+          path: 'detail/:id',
+          element: <DataDetail></DataDetail>,
+        }
+      ]
+    }
+    
   ]);
